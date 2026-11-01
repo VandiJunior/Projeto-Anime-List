@@ -1,0 +1,13 @@
+{
+  "name": "animelist-typescript",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Catalogo interativo de animes desenvolvido com HTML, CSS e TypeScript",
+  "scripts": {
+    "build": "tsc",
+    "start": "npx http-server . -p 8080"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

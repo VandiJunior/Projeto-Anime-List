@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo interativo de animes desenvolvido com TypeScript.">
+  <title>AnimeList | Catálogo de Animes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <div class="marca"><span class="marca-icone">A</span><div><strong>AnimeList</strong><small>SEU CATÁLOGO PESSOAL</small></div></div>
+      <span class="topo-tag">CATÁLOGO INTERATIVO</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="apresentacao">
+      <div>
+        <p class="sobretitulo">ORGANIZE SUA JORNADA</p>
+        <h1>Seu universo de <span>animes</span>.</h1>
+        <p class="descricao">Cadastre, encontre e acompanhe os animes que fazem parte da sua lista.</p>
+      </div>
+      <div class="decoracao" aria-hidden="true">✦</div>
+    </section>
+
+    <section class="resumo" aria-label="Resumo do catálogo">
+      <article class="resumo-card"><span>Total de animes</span><strong id="total-animes">0</strong></article>
+      <article class="resumo-card"><span>Assistidos</span><strong id="total-assistidos">0</strong></article>
+      <article class="resumo-card"><span>Não assistidos</span><strong id="total-pendentes">0</strong></article>
+    </section>
+
+    <section class="painel">
+      <div class="secao-titulo">
+        <div><p class="sobretitulo">ADICIONE À SUA LISTA</p><h2>Novo anime</h2></div>
+      </div>
+      <form id="form-anime" class="formulario">
+        <div class="campo campo-grande">
+          <label for="titulo">Nome do anime</label>
+          <input id="titulo" name="titulo" type="text" placeholder="Ex.: Naruto" required maxlength="70">
+        </div>
+        <div class="campo">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" name="categoria" required>
+            <option value="">Selecione</option>
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Romance">Romance</option>
+            <option value="Suspense">Suspense</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="ano">Ano de lançamento</label>
+          <input id="ano" name="ano" type="number" placeholder="Ex.: 2002" min="1900" max="2100" required>
+        </div>
+        <div class="campo">
+          <label for="estado">Estado</label>
+          <select id="estado" name="estado" required>
+            <option value="false">Não assistido</option>
+            <option value="true">Assistido</option>
+          </select>
+        </div>
+        <button class="botao botao-principal" type="submit">+ Adicionar anime</button>
+      </form>
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="catalogo">
+      <div class="catalogo-cabecalho">
+        <div><p class="sobretitulo">SUA COLEÇÃO</p><h2>Meus animes</h2></div>
+        <div class="filtros">
+          <input id="busca" type="search" placeholder="Buscar anime..." aria-label="Buscar anime pelo nome">
+          <select id="filtro-categoria" aria-label="Filtrar por categoria">
+            <option value="">Todas as categorias</option>
+            <option value="Ação">Ação</option><option value="Aventura">Aventura</option>
+            <option value="Comédia">Comédia</option><option value="Drama">Drama</option>
+            <option value="Fantasia">Fantasia</option><option value="Romance">Romance</option>
+            <option value="Suspense">Suspense</option><option value="Outro">Outro</option>
+          </select>
+        </div>
+      </div>
+      <div id="lista-animes" class="grade-animes"></div>
+      <p id="estado-vazio" class="estado-vazio">Sua lista ainda está vazia. Cadastre seu primeiro anime!</p>
+    </section>
+  </main>
+
+  <footer><div class="container">AnimeList · Projeto acadêmico desenvolvido com HTML, CSS e TypeScript.</div></footer>
+  <script src="dist/app.js"></script>
+</body>
+</html>
